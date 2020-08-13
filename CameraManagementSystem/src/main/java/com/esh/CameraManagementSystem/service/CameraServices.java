@@ -1,6 +1,7 @@
 package com.esh.CameraManagementSystem.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,13 +26,9 @@ public class CameraServices {
 		
 	}
 	//Get Camera By Id
-	public Camera getCameraById(Long id) {
-		Camera camera = null;
-		try {camera = cameraRepository.findById(id).get();
-		}catch(Exception e){
-			e.printStackTrace();
-		}
-			return camera ;
+	public Optional<Camera> getCameraById(Long id) {
+		return  cameraRepository.findById(id);
+		
 		
 	}
 	//Delete Camera by id
