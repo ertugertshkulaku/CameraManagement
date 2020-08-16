@@ -1,0 +1,39 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h2>Cameras List</h2>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>NAME</th>
+                    <th>MODEL</th>
+                    <th>RESOLUTION</th>
+                    <th>IP</th>
+                    <th>ACTION</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let camera of cameras | async">
+                    <td>{{camera.id}}</td>
+                    <td>{{camera.name}}</td>
+                    <td>{{camera.model}}</td>
+                    <td>{{camera.resolution}}</td>
+                    <td>{{camera.ip}}</td>
+                    <td>
+                        <button (click)="deleteCamera(camera.id)" class="btn btn-danger">Delete</button>
+                        <button (click)="updateCamera(camera.id)" class="btn btn-primary" style="margin-left: 10px;">Update</button>
+                        <button (click)="cameraDetails(camera.id)" class="btn btn-info" style="margin-left: 10px;">Details</button>
+                   
+                    </td>
+                    
+
+                </tr>
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>

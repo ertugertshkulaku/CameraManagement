@@ -1,0 +1,38 @@
+<h3>Update Camera</h3>
+<div  style="width: 400px;">
+    <form (ngSubmit)="onSubmit()" [formGroup]="updateCameraForm"> 
+        <div class="form-group">
+            <label for="name">Camera Name</label>
+            <input type="text" class="form-control" id="name" required [(ngModel)]="camera.name" name="name" formControlName="name"/>
+            <span *ngIf=" !updateCameraForm.get('name').valid && updateCameraForm.get('name').touched" class="error-block">
+              Please enter the name of camera
+            </span>
+        </div>
+        <div class="form-group">
+            <label for="name">Camera Model</label>
+            <input type="text" class="form-control" id="model" required [(ngModel)]="camera.model" name="model" formControlName="model"/>
+            <span *ngIf=" !updateCameraForm.get('model').valid && updateCameraForm.get('model').touched" class="error-block">
+              Please enter the name of camera
+            </span>
+          </div>
+          <div class="form-group">
+            <label for="name">Resolution</label>
+            <input type="text" class="form-control" id="resolution" required [(ngModel)]="camera.resolution" name="resolution" formControlName="resolution"/>
+            <span *ngIf=" !updateCameraForm.get('resolution').valid && updateCameraForm.get('resolution').touched" class="error-block">
+              Please enter the name of camera
+            </span>
+          </div>
+          <div class="form-group">
+            <label for="name">Camera IP</label>
+            <input type="text" class="form-control" id="ip" required [(ngModel)]="camera.ip" name="ip" formControlName="ip"/>
+            <span *ngIf=" !updateCameraForm.get('ip').valid && updateCameraForm.get('ip').touched" class="error-block">
+              Please enter the IP of camera
+            </span>
+          </div>
+
+          <button [disabled]="!updateCameraForm.valid"  type="submit" class="btn btn-success">Update</button>
+
+    </form>
+
+
+</div>

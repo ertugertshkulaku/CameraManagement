@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.esh.CameraManagementSystem.model.Camera;
@@ -32,12 +33,13 @@ public class CameraController {
 		cameraService.createCamera(camera);
 		return "Camera with name "+camera.getName()+" created succesfuly";
 	}
+	
 	@GetMapping(value="/cameras")
 	public List<Camera> findAllCameras(){
 		return cameraService.getAllCameras();
 	}
 	@GetMapping(value="/cameras/{id}")
-	public ResponseEntity<Camera> findCameraById(@PathVariable Long id) {
+	public ResponseEntity<Camera> findCameraById(@PathVariable String id) {
 		
 		Optional<Camera> camera = cameraService.getCameraById(id);
 		return camera.map(response -> ResponseEntity.ok().body(response))
@@ -45,7 +47,7 @@ public class CameraController {
 	
 	}
 	@DeleteMapping(value="/cameras/{id}")
-	public ResponseEntity<String> deleteCameraById(@PathVariable("id") Long id)  {
+	public ResponseEntity<String> deleteCameraById(@PathVariable("id") String id)  {
 		String result = "";
 		if(id != null) {
 			Camera camera = cameraService.getCameraById(id).get();
@@ -65,6 +67,11 @@ public class CameraController {
 	public ResponseEntity<String> updateCamera(@Validated @RequestBody Camera camera) {
 		cameraService.updateCamera(camera);
 		return new ResponseEntity<>("Update Succesful", HttpStatus.OK);
+	}
+	
+	@GetMapping(value="/cameraSearch/{name}")
+	public List<Camera> searchCameras(@RequestParam String name){
+		return this.cameraService.searchCameras(name);
 	}
 	
 

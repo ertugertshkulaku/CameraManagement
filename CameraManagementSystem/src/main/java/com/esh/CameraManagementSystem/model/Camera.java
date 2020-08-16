@@ -8,7 +8,7 @@ public class Camera {
 	
 	
 	@Id
-	private Long id;
+	private String id;
 	private String name;
 	private String model;
 	private String resolution;
@@ -19,7 +19,7 @@ public class Camera {
 	}
 	
 	//**Constructor with parameter
-	public Camera(Long id, String name, String model, String resolution, String ip) {
+	public Camera(String id, String name, String model, String resolution, String ip) {
 		this.id = id;
 		this.name = name;
 		this.model = model;
@@ -28,11 +28,11 @@ public class Camera {
 	}
 
 	//**Getter and Setter
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

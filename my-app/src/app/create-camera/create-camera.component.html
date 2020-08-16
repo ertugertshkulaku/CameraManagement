@@ -1,0 +1,44 @@
+<h3>Create New Camera</h3>
+<div style="width: 400px;">
+    <form (ngSubmit)="onSubmit()" [formGroup]="createCameraForm">
+        <div class="form-group" >
+            <label for="name">Camera Name</label>
+            <input type="text" class="form-control" id="cameraName" required [(ngModel)]="camera.name" name="cameraName"
+            formControlName="name"> 
+            <span *ngIf=" !createCameraForm.get('name').valid && createCameraForm.get('name').touched" class="error-block">
+              Please enter the name of camera
+            </span>
+        </div>
+        <div class="form-group">
+            <label for="model">Camera Model</label>
+            <input type="text" class="form-control" id="cameraModel" required [(ngModel)]="camera.model" 
+            name="cameraModel" formControlName="model">
+            <span *ngIf=" !createCameraForm.get('model').valid && createCameraForm.get('model').touched" class="error-block">
+              Please enter the model of camera
+            </span>
+          </div>
+          <div class="form-group">
+            <label for="resolution">Resolution</label>
+            <input type="text" class="form-control" id="cameraResolution" required [(ngModel)]="camera.resolution" 
+            name="cameraResolution" formControlName="resolution">
+            <span *ngIf=" !createCameraForm.get('resolution').valid && createCameraForm.get('resolution').touched" class="error-block">
+              Please enter the resolution of camera
+            </span>
+          </div>
+          <div class="form-group">
+            <label for="ip">Camera IP</label>
+            <input type="text" class="form-control" id="cameraIp" required [(ngModel)]="camera.ip" 
+            name="cameraIp" formControlName="ip">
+            <span *ngIf=" !createCameraForm.get('ip').valid && createCameraForm.get('ip').touched" class="error-block">
+              Please enter the IP of camera
+            </span>
+          </div>
+          <button [disabled]="!createCameraForm.valid" type="submit" class="btn btn-success">Save</button>
+          <br/>
+    <!-- Form Values: {{createCameraForm.value | json }} <br/>
+    Form Status: {{createCameraForm.valid}} -->
+    </form>
+    
+
+
+</div>

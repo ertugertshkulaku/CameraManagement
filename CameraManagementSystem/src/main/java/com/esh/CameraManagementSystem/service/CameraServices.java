@@ -26,18 +26,23 @@ public class CameraServices {
 		
 	}
 	//Get Camera By Id
-	public Optional<Camera> getCameraById(Long id) {
+	public Optional<Camera> getCameraById(String id) {
 		return  cameraRepository.findById(id);
 		
 		
 	}
 	//Delete Camera by id
-	public void deleteCameraById(Long id) {
+	public void deleteCameraById(String id) {
 		cameraRepository.deleteById(id);
 	}
 	//Update Camera by id
 	public void updateCamera(Camera camera) {
 		cameraRepository.save(camera);
+	}
+	
+	// Search method
+	public List<Camera> searchCameras(String name){
+		return cameraRepository.findByNameLike(name);
 	}
 	
 

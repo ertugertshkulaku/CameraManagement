@@ -1,0 +1,23 @@
+<h2>Camera Detail</h2>
+<hr/>
+<div *ngIf="camera">
+    <div>
+        <label><b>ID: </b></label>{{camera.id}}
+    </div>
+    <div>
+        <label><b>NAME: </b></label>{{camera.name}}
+    </div>
+    <div>
+        <label><b>MODEL: </b></label>{{camera.model}}
+    </div>
+    <div>
+        <label><b>RESOLUTION: </b></label>{{camera.resolution}}
+    </div>
+    <div>
+        <label><b>IP: </b></label>{{camera.ip}}
+    </div>
+    <br>
+    <br>
+    <button (click)="list()" class="btn btn-primary">Back to Camera List</button>
+
+</div>
