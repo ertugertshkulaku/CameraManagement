@@ -14,9 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.esh.CameraManagementSystem.model.Camera;
 import com.esh.CameraManagementSystem.service.CameraServices;
 
@@ -69,9 +67,9 @@ public class CameraController {
 		return new ResponseEntity<>("Update Succesful", HttpStatus.OK);
 	}
 	
-	@GetMapping(value="/cameraSearch/{name}")
-	public List<Camera> searchCameras(@RequestParam String name){
-		return this.cameraService.searchCameras(name);
+	@GetMapping(value="/camerasSearch/{stringSearch}")
+	public List<Camera> searchCameras(@PathVariable("stringSearch") String stringSearch){
+		return this.cameraService.searchCameras(stringSearch);
 	}
 	
 

@@ -41,8 +41,15 @@ public class CameraServices {
 	}
 	
 	// Search method
-	public List<Camera> searchCameras(String name){
-		return cameraRepository.findByNameLike(name);
+	public List<Camera> searchCameras(String searchString){
+		List<Camera> result = null;
+		if(searchString != null && searchString != "") {
+			result = this.cameraRepository.searchCameras(searchString);
+		}else {
+			result =  this.getAllCameras();
+		}
+		
+		return result;
 	}
 	
 
