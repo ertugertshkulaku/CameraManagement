@@ -13,7 +13,7 @@ export class CreateCameraComponent implements OnInit {
  
   createCameraForm: FormGroup;
   camera: Camera = new Camera();
-  submitted = false;
+  
   
 
   constructor(private cameraService: CameraService, private router: Router) { }
@@ -28,8 +28,7 @@ export class CreateCameraComponent implements OnInit {
   }
 
   newCamera(): void {
-    this.submitted = false;
-    this.camera = new Camera();
+   this.camera = new Camera();
   }
   save(){
     this.cameraService.createCamera(this.camera)
@@ -39,7 +38,6 @@ export class CreateCameraComponent implements OnInit {
   }
   onSubmit(){
     if(this.createCameraForm.valid){
-      this.submitted = true;
       this.save();
     }
   }

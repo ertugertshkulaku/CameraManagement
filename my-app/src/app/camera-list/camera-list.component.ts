@@ -39,4 +39,8 @@ export class CameraListComponent implements OnInit {
     this.router.navigate(['update', id]);
   }
 
+  searchCameras(stringSearch: string){
+    this.cameras = this.cameraService.searchCameras(stringSearch);
+  }
+
 }

@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 export class CameraService {
 
   private baseUrl = 'http://localhost:6039/cameras';
+  private searchUrl= 'http://localhost:6039/camerasSearch';
 
   constructor(private http: HttpClient) { }
   getCamera(id: string): Observable<any>{
@@ -27,6 +28,10 @@ export class CameraService {
   }
   getCamerasList(): Observable<any>{
     return this.http.get(`${this.baseUrl}`);
+  }
+
+  searchCameras(stringSearch: string): Observable<any>{
+    return this.http.get(`${this.searchUrl}/${stringSearch}`);
   }
 
 }
