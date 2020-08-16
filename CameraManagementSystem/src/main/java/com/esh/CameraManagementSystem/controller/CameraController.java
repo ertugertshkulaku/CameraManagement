@@ -36,6 +36,7 @@ public class CameraController {
 	public List<Camera> findAllCameras(){
 		return cameraService.getAllCameras();
 	}
+	
 	@GetMapping(value="/cameras/{id}")
 	public ResponseEntity<Camera> findCameraById(@PathVariable String id) {
 		
@@ -67,10 +68,6 @@ public class CameraController {
 		return new ResponseEntity<>("Update Succesful", HttpStatus.OK);
 	}
 	
-	@GetMapping(value="/camerasSearch/{stringSearch}")
-	public List<Camera> searchCameras(@PathVariable("stringSearch") String stringSearch){
-		return this.cameraService.searchCameras(stringSearch);
-	}
 	
 
 }
