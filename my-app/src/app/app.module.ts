@@ -8,6 +8,7 @@ import { CameraDetailsComponent } from './camera-details/camera-details.componen
 import { CameraListComponent } from './camera-list/camera-list.component';
 import { UpdateCameraComponent } from './update-camera/update-camera.component';
 import { HttpClientModule } from '@angular/common/http';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 
@@ -27,7 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    Ng2SearchPipeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -5,6 +5,7 @@ import { CreateCameraComponent } from './create-camera/create-camera.component';
 import { UpdateCameraComponent } from './update-camera/update-camera.component';
 import { CameraDetailsComponent } from './camera-details/camera-details.component';
 
+
 const routes: Routes = [
   {path: '', redirectTo: 'cameras', pathMatch: 'full'},
   {path: 'cameras', component: CameraListComponent},

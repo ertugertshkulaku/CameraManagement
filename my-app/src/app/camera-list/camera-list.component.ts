@@ -10,9 +10,11 @@ import { CameraService } from '../camera.service';
   templateUrl: './camera-list.component.html',
   styleUrls: ['./camera-list.component.css']
 })
-export class CameraListComponent implements OnInit {
-  cameras: Observable<Camera[]>;
 
+ export class CameraListComponent implements OnInit {
+  cameras: Observable<Camera[]>;
+  searchText;
+ 
   constructor(private cameraService: CameraService, private router: Router) { }
 
   ngOnInit(){
@@ -21,8 +23,10 @@ export class CameraListComponent implements OnInit {
   }
 
   reloadData(){
-    this.cameras = this.cameraService.getCamerasList();
+     this.cameras = this.cameraService.getCamerasList();
   }
+
+
   deleteCamera(id: string){
     this.cameraService.deleteCamera(id)
     .subscribe(
@@ -38,9 +42,5 @@ export class CameraListComponent implements OnInit {
   updateCamera(id: string){
     this.router.navigate(['update', id]);
   }
-
-  searchCameras(stringSearch: string){
-    this.cameras = this.cameraService.searchCameras(stringSearch);
-  }
-
+  
 }
