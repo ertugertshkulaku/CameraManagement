@@ -14,11 +14,11 @@ export class CameraService {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
 
-  createCamera(camera: Object): Observable<Object>{
+  createCamera(camera: object): Observable<object>{
     return this.http.post(`${this.baseUrl}`, camera);
   }
 
-  updateCamera(id: string, value: any): Observable<Object>{
+  updateCamera(id: string, value: any): Observable<object>{
     return this.http.put(`${this.baseUrl}/${id}`, value);
   }
 
